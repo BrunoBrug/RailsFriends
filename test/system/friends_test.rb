@@ -7,14 +7,14 @@ class FriendsTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit friends_url
-    assert_selector "h1", text: "Friends"
+    assert_selector "h1", text: "Friend List"
   end
 
   test "should create friend" do
     visit friends_url
-    click_on "New friend"
+    click_on "New Friend"
 
-    fill_in "Email", with: @friend.email
+    fill_in "Email", with: "new_friend@example.com"
     fill_in "First name", with: @friend.first_name
     fill_in "Last name", with: @friend.last_name
     fill_in "Phone", with: @friend.phone
@@ -27,9 +27,9 @@ class FriendsTest < ApplicationSystemTestCase
 
   test "should update Friend" do
     visit friend_url(@friend)
-    click_on "Edit this friend", match: :first
+    click_on "Edit", match: :first
 
-    fill_in "Email", with: @friend.email
+    fill_in "Email", with: "updated_friend@example.com"
     fill_in "First name", with: @friend.first_name
     fill_in "Last name", with: @friend.last_name
     fill_in "Phone", with: @friend.phone
@@ -42,7 +42,9 @@ class FriendsTest < ApplicationSystemTestCase
 
   test "should destroy Friend" do
     visit friend_url(@friend)
-    click_on "Destroy this friend", match: :first
+    accept_confirm do
+      click_on "Delete", match: :first
+    end
 
     assert_text "Friend was successfully destroyed"
   end

@@ -1,0 +1,32 @@
+<% full_name = [friend.first_name, friend.last_name].join(" ").strip.presence || "Unnamed Friend" %>
+<% initials = [friend.first_name.to_s.first, friend.last_name.to_s.first].join.upcase.presence || "RF" %>
+<% twitter = friend.twitter.to_s.strip %>
+
+<div id="<%= dom_id friend %>" class="friend-profile">
+  <div class="friend-profile__identity">
+    <span class="friend-avatar"><%= initials %></span>
+    <div>
+      <h2 class="friend-profile__name"><%= full_name %></h2>
+      <p class="friend-profile__handle"><%= twitter.present? ? (twitter.start_with?("@") ? twitter : "@#{twitter}") : "No handle" %></p>
+    </div>
+  </div>
+
+  <dl class="friend-profile__meta">
+    <div>
+      <dt>Email</dt>
+      <dd><%= friend.email.presence || "Not informed" %></dd>
+    </div>
+    <div>
+      <dt>Phone</dt>
+      <dd><%= friend.phone.presence || "Not informed" %></dd>
+    </div>
+    <div>
+      <dt>First name</dt>
+      <dd><%= friend.first_name.presence || "Not informed" %></dd>
+    </div>
+    <div>
+      <dt>Last name</dt>
+      <dd><%= friend.last_name.presence || "Not informed" %></dd>
+    </div>
+  </dl>
+</div>

@@ -1,0 +1,30 @@
+<% content_for :title, "Friends" %>
+
+<section class="page-heading">
+  <div>
+    <p class="eyebrow">Directory</p>
+    <h1>Friend List</h1>
+    <p class="section-intro">A simple, visual list of everyone you want to keep in touch with.</p>
+  </div>
+  <%= link_to "New Friend", new_friend_path, class: "btn btn-primary btn-pill" %>
+</section>
+
+<% if @friends.any? %>
+  <div id="friends" class="friends-grid">
+    <% @friends.each do |friend| %>
+      <article class="friend-card">
+        <%= render friend %>
+        <div class="friend-card__actions">
+          <%= link_to "View", friend, class: "btn btn-sm btn-primary btn-pill" %>
+          <%= link_to "Edit", edit_friend_path(friend), class: "btn btn-sm btn-outline-primary btn-pill" %>
+        </div>
+      </article>
+    <% end %>
+  </div>
+<% else %>
+  <section class="empty-state">
+    <h2>No friends yet</h2>
+    <p>Create your first contact to populate this page.</p>
+    <%= link_to "Add First Friend", new_friend_path, class: "btn btn-primary btn-pill" %>
+  </section>
+<% end %>

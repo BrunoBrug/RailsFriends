@@ -1,0 +1,17 @@
+<% content_for :title, "New friend" %>
+
+<section class="page-heading">
+  <div>
+    <p class="eyebrow">Create</p>
+    <h1>Add New Friend</h1>
+    <p class="section-intro">Fill out the form below to create a new contact card.</p>
+  </div>
+</section>
+
+<section class="form-panel">
+  <%= render "form", friend: @friend %>
+</section>
+
+<div class="action-row">
+  <%= link_to "Back to friends", friends_path, class: "btn btn-outline-primary btn-pill" %>
+</div>

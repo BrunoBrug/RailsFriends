@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg top-nav">
+  <div class="container top-nav__inner">
+    <%= link_to root_path, class: "brand" do %>
+      <span class="brand__dot"></span>
+      <span class="brand__text">
+        <strong>Rails Friends</strong>
+        <small>Your people, organized</small>
+      </span>
+    <% end %>
+
+    <button class="navbar-toggler top-nav__toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="siteNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class: "nav-link top-nav__link #{'is-active' if current_page?(root_path)}" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "About", home_about_path, class: "nav-link top-nav__link #{'is-active' if current_page?(home_about_path)}" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Friends", friends_path, class: "nav-link top-nav__link #{'is-active' if controller_name == 'friends'}" %>
+        </li>
+        <li class="nav-item ms-lg-2">
+          <%= link_to "Add Friend", new_friend_path, class: "btn btn-spotlight btn-sm btn-pill" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

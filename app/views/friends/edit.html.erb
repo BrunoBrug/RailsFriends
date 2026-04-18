@@ -1,0 +1,18 @@
+<% content_for :title, "Editing friend" %>
+
+<section class="page-heading">
+  <div>
+    <p class="eyebrow">Update</p>
+    <h1>Edit Friend</h1>
+    <p class="section-intro">Adjust contact information and keep your directory updated.</p>
+  </div>
+</section>
+
+<section class="form-panel">
+  <%= render "form", friend: @friend %>
+</section>
+
+<div class="action-row">
+  <%= link_to "Show this friend", @friend, class: "btn btn-primary btn-pill" %>
+  <%= link_to "Back to friends", friends_path, class: "btn btn-outline-primary btn-pill" %>
+</div>

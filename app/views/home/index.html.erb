@@ -1,0 +1,45 @@
+<% content_for :title, "Home" %>
+
+<section class="hero">
+	<div class="hero__copy">
+		<p class="eyebrow">Friendship Dashboard</p>
+		<h1>Keep every connection in one elegant place</h1>
+		<p>
+			Rails Friends helps you manage names, emails, phone numbers and social handles
+			with a clean, fast flow that feels good on desktop and mobile.
+		</p>
+
+		<div class="hero__actions">
+			<%= link_to "View Friends", friends_path, class: "btn btn-primary btn-pill" %>
+			<%= link_to "Create Contact", new_friend_path, class: "btn btn-ghost btn-pill" %>
+		</div>
+	</div>
+
+	<div class="hero__stats">
+		<article class="stat-card">
+			<span>Total contacts</span>
+			<strong><%= @friends_count %></strong>
+		</article>
+		<article class="stat-card">
+			<span>Project status</span>
+			<strong><%= @friends_count.zero? ? "Ready to start" : "In motion" %></strong>
+		</article>
+	</div>
+</section>
+
+<section class="feature-grid">
+	<article class="feature-card">
+		<h2>Fast contact CRUD</h2>
+		<p>Create, edit and browse your contacts with lightweight Rails defaults and clear pages.</p>
+	</article>
+
+	<article class="feature-card">
+		<h2>Responsive by design</h2>
+		<p>Works smoothly on mobile and desktop with adaptive layout, readable typography and spacing.</p>
+	</article>
+
+	<article class="feature-card">
+		<h2>Easy to evolve</h2>
+		<p>Built to extend with authentication, tags, notes and any feature you want next.</p>
+	</article>
+</section>

@@ -1,0 +1,44 @@
+<%= form_with(model: friend, class: "friend-form") do |form| %>
+  <% if friend.errors.any? %>
+    <div class="form-errors">
+      <h2><%= pluralize(friend.errors.count, "error") %> prevented this friend from being saved:</h2>
+
+      <ul>
+        <% friend.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-grid">
+    <div class="field-group">
+      <%= form.label :first_name %>
+      <%= form.text_field :first_name, class: "form-control custom-input", placeholder: "First name" %>
+    </div>
+
+    <div class="field-group">
+      <%= form.label :last_name %>
+      <%= form.text_field :last_name, class: "form-control custom-input", placeholder: "Last name" %>
+    </div>
+
+    <div class="field-group">
+      <%= form.label :email %>
+      <%= form.email_field :email, class: "form-control custom-input", placeholder: "name@email.com" %>
+    </div>
+
+    <div class="field-group">
+      <%= form.label :phone %>
+      <%= form.telephone_field :phone, class: "form-control custom-input", placeholder: "+1 555 123 4567" %>
+    </div>
+
+    <div class="field-group field-group--full">
+      <%= form.label :twitter %>
+      <%= form.text_field :twitter, class: "form-control custom-input", placeholder: "@username" %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= form.submit friend.persisted? ? "Update Friend" : "Create Friend", class: "btn btn-primary btn-pill" %>
+  </div>
+<% end %>

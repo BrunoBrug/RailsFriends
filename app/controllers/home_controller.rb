@@ -6,5 +6,4 @@ class HomeController < ApplicationController
   def about
     @friends_count = Friend.count
   end
-  
 end
